@@ -19,9 +19,22 @@ TRAIN_COOLDOWN_S = 30
 
 
 def _auth_configured() -> bool:
-    """มีการตั้งค่า [auth] (Google OAuth) ใน secrets แล้วหรือยัง"""
+    """มีการตั้งค่า [auth] (Google OAuth) ด้วยค่าจริงแล้วหรือยัง
+
+    ค่า placeholder (REPLACE-ME) จากไฟล์โครงถือว่ายังไม่ตั้งค่า →
+    เข้าโหมดพัฒนาได้ระหว่างรอ OAuth จริง พอกรอกค่าจริง login เปิดเองทันที
+    """
     try:
-        return "auth" in st.secrets
+        auth = st.secrets.get("auth")
+        if not auth:
+            return False
+        client_id = str(auth.get("client_id", ""))
+        client_secret = str(auth.get("client_secret", ""))
+        if not client_id or not client_secret:
+            return False
+        if "REPLACE-ME" in client_id or "REPLACE-ME" in client_secret:
+            return False
+        return True
     except Exception:
         return False
 
