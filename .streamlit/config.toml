@@ -1,0 +1,10 @@
+[server]
+# จำกัดขนาดไฟล์อัปโหลด (MB) — เช็คซ้ำอีกชั้นใน src/storage.py
+maxUploadSize = 10
+
+[theme]
+base = "dark"
+primaryColor = "#22E3D0"
+backgroundColor = "#070B14"
+secondaryBackgroundColor = "#0E1626"
+textColor = "#DCE7F4"

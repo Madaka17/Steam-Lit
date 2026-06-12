@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+model.joblib
+.DS_Store
+
+# Upload Archive — เก็บโฟลเดอร์ แต่ไม่ track ไฟล์ที่ผู้ใช้อัปโหลด
+data/uploads/*
+!data/uploads/.gitkeep
+
+# ความลับ OAuth — ห้าม commit เด็ดขาด
+.streamlit/secrets.toml
